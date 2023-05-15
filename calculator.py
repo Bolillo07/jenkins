@@ -12,6 +12,21 @@ def subtract():
     result = num1 - num2
     label_result.config(text="Result: " + str(result))
 
+def multiply():
+    num1 = float(entry1.get())
+    num2 = float(entry2.get())
+    result = num1 * num2
+    label_result.config(text="Result: " + str(result))
+
+def divide():
+    num1 = float(entry1.get())
+    num2 = float(entry2.get())
+    if num2 == 0:
+        label_result.config(text="Error: division by zero")
+    else:
+        result = num1 / num2
+        label_result.config(text="Result: " + str(result))
+
 # create the GUI
 root = Tk()
 root.title("Calculator")
@@ -33,6 +48,12 @@ button_add.pack()
 
 button_subtract = Button(root, text="-", command=subtract)
 button_subtract.pack()
+
+button_multiply = Button(root, text="*", command=multiply)
+button_multiply.pack()
+
+button_divide = Button(root, text="/", command=divide)
+button_divide.pack()
 
 label_result = Label(root, text="Result: ")
 label_result.pack()
